@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {RecoilRoot} from 'recoil';
+import DebugObserver from './utils/DebugObserver'
+
+
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <RecoilRoot>
+      <DebugObserver />
+      <App />
+    </RecoilRoot>
   </React.StrictMode>,
   document.getElementById('root')
 );
