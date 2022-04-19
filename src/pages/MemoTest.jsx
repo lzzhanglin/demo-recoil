@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react'
 
-const EffectTest = () => {
+const MemoTest = () => {
     return (
         <div style={{margin: '12px'}}>
-            effect 页面
+            useMemo 页面
         </div>
     )
 }
 
-export default EffectTest
+export default MemoTest

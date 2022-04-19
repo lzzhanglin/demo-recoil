@@ -1,14 +1,14 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import ReactDOM from 'react-dom';
-import {RecoilRoot} from 'recoil';
-import DebugObserver from './utils/DebugObserver'
-
 
 import './index.css';
 import App from './App';
+import Header from './pages/Header'
 import reportWebVitals from './reportWebVitals';
 import EffectTest from './pages/EffectTest'
 import HomePage from './pages/HomePage'
+import CallbackTest from './pages/CallbackTest'
+import MemoTest from './pages/MemoTest'
 
 import {
   BrowserRouter,
@@ -18,21 +18,18 @@ import {
 } from "react-router-dom";
 ReactDOM.render(
   <React.StrictMode>
-    <RecoilRoot>
-      <DebugObserver />
-      <App />
-      {/* <BrowserRouter>
+      {/* <Suspense fallback={<div>Loading... </div>}>
+        
+      </Suspense> */}
+      <BrowserRouter>
+      <Header />
         <Routes>
-          <Route path="/" element={<App />}>
-            <Route index element={<HomePage />} />
-            <Route path="effect" element={<EffectTest />}>
-            
-            </Route>
-          </Route>
+          <Route path="/" element={<App />} />
+          <Route path="useEffect" element={<EffectTest />} />
+          <Route path="useCallback" element={<CallbackTest />} />
+          <Route path="useMemo" element={<MemoTest />} />
         </Routes>
-      </BrowserRouter> */}
-      <App />
-    </RecoilRoot>
+      </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

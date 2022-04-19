@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react'
 
-const EffectTest = () => {
+const CallbackTest = () => {
     return (
         <div style={{margin: '12px'}}>
-            effect 页面
+            useCallback 页面
         </div>
     )
 }
 
-export default EffectTest
+export default CallbackTest
