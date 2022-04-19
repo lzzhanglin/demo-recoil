@@ -7,10 +7,30 @@ import DebugObserver from './utils/DebugObserver'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import EffectTest from './pages/EffectTest'
+import HomePage from './pages/HomePage'
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 ReactDOM.render(
   <React.StrictMode>
     <RecoilRoot>
       <DebugObserver />
+      <App />
+      {/* <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<HomePage />} />
+            <Route path="effect" element={<EffectTest />}>
+            
+            </Route>
+          </Route>
+        </Routes>
+      </BrowserRouter> */}
       <App />
     </RecoilRoot>
   </React.StrictMode>,
