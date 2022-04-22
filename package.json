@@ -25,6 +25,7 @@
     "dotenv-expand": "^5.1.0",
     "eslint": "^8.3.0",
     "eslint-config-react-app": "^7.0.0",
+    "eslint-plugin-react-hooks": "^4.4.0",
     "eslint-webpack-plugin": "^3.1.1",
     "file-loader": "^6.2.0",
     "fs-extra": "^10.0.0",
@@ -72,7 +73,11 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "react-hooks/rules-of-hooks": "error", 
+      "react-hooks/exhaustive-deps": "warn"
+    }
   },
   "browserslist": {
     "production": [

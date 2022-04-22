@@ -9,6 +9,7 @@ import EffectTest from './pages/EffectTest'
 import HomePage from './pages/HomePage'
 import CallbackTest from './pages/CallbackTest'
 import MemoTest from './pages/MemoTest'
+import NotFoundPage from './pages/NotFoundPage'
 
 import {
   BrowserRouter,
@@ -27,7 +28,8 @@ ReactDOM.render(
           <Route path="/" element={<App />} />
           <Route path="useEffect" element={<EffectTest />} />
           <Route path="useCallback" element={<CallbackTest />} />
-          <Route path="useMemo" element={<MemoTest />} />
+          <Route path="useMemo" element={<MemoTest initValue={5} initValue2={6} />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
   </React.StrictMode>,
