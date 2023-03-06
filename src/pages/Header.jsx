@@ -10,6 +10,7 @@ const Header = () => {
             <Link to="/useEffect">useEffect</Link> |{" "}
             <Link to="/useCallback">useCallback</Link> |{" "}
             <Link to="/useMemo">useMemo</Link> |{" "}
+            <Link to="/depTest">Dep</Link> |{" "}
         </div>
     )
 }

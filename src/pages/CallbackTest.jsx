@@ -13,6 +13,9 @@ const CallbackTest = () => {
     useEffect(()=>{
         console.log('count变化 拉取数据一次', count)
         getData().then(res=>{
+        // console.log("🚀 ~ file: CallbackTest.jsx ~ line 16 ~ getData ~ res", res)
+        // console.log("🚀 ~ file: CallbackTest.jsx ~ line 16 ~ getData ~ res", res)
+            
             setName(res?.data?.userId)
         })
     }, [])

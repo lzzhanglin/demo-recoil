@@ -10,7 +10,14 @@ import HomePage from './pages/HomePage'
 import CallbackTest from './pages/CallbackTest'
 import MemoTest from './pages/MemoTest'
 import NotFoundPage from './pages/NotFoundPage'
-
+import DepTest from './pages/DepTest'
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from 'recoil';
 import {
   BrowserRouter,
   Routes,
@@ -19,6 +26,7 @@ import {
 } from "react-router-dom";
 ReactDOM.render(
   <React.StrictMode>
+    <RecoilRoot>
       {/* <Suspense fallback={<div>Loading... </div>}>
         
       </Suspense> */}
@@ -28,10 +36,13 @@ ReactDOM.render(
           <Route path="/" element={<App />} />
           <Route path="useEffect" element={<EffectTest />} />
           <Route path="useCallback" element={<CallbackTest />} />
+          <Route path="depTest" element={<DepTest />} />
           <Route path="useMemo" element={<MemoTest initValue={5} initValue2={6} />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
+    </RecoilRoot>
+      
   </React.StrictMode>,
   document.getElementById('root')
 );
