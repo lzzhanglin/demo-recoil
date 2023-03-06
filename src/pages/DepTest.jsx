@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { useUserInfo, useUserInfo2 } from "../utils/hooks";
+import { useUserInfo, useUserInfo2, userAtom } from "../utils/hooks";
+import {atom, selector, useRecoilState} from 'recoil'
 
 const DepTest = () => {
 
@@ -9,12 +10,16 @@ const DepTest = () => {
     // const r4 = useUserInfo(4)
     // const r5 = useUserInfo(5)
 
-    const r6 = useUserInfo2(6)
-    const r7 = useUserInfo2(7)
-    const r8 = useUserInfo2(8)
-    const r9 = useUserInfo2(9)
-    const r10 = useUserInfo2(10)
+    const {userAtom, info: r6} = useUserInfo2(6)
+    const {info: r7} = useUserInfo2(7)
+    // const r8 = useUserInfo2(8)
+    // const r9 = useUserInfo2(9)
+    // const r10 = useUserInfo2(10)
 
+
+    const [info, setInfo] = useRecoilState(userAtom)
+
+    console.log('从其他组件获取的atom--->', info)
 
     
     return (
@@ -28,9 +33,9 @@ const DepTest = () => {
                 <br />
                 <li>r6:{r6?.name}</li>
                 <li>r7:{r7?.name}</li>
-                <li>r7:{r8?.name}</li>
+                {/* <li>r7:{r8?.name}</li>
                 <li>r7:{r9?.name}</li>
-                <li>r7:{r10?.name}</li>
+                <li>r7:{r10?.name}</li> */}
             </ul>
         </div>
     )

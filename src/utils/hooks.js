@@ -39,7 +39,7 @@ const useUserInfo2 = (() => {
                 })
             }
         }, [info, data])
-        return info
+        return {userAtom, info}
     }
     
 })()
