@@ -20,8 +20,46 @@ const DepTest = () => {
     const [info, setInfo] = useRecoilState(userAtom)
 
     console.log('从其他组件获取的atom--->', info)
+    let count = 0
+    const query = async ()=> {
+        const d = new Date().valueOf()
+        fetch(`http://dl.scs.gov.cn/api/result/checkWritten/8a81f6d080ff71970182cddc44f10338?_=${d}`, {
+            "headers": {
+                "accept": "*/*",
+                "accept-language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
+                "mobile-client": "0",
+                "proxy-connection": "keep-alive",
+                "x-hmac-hash": "4cc122f75f753997fdb7c9f48b3ff2354e53950f397241c3eb955b0528f6f7c2",
+                "x-micro-time": "1678455895254",
+                "x-requested-with": "",
+                "x-user": "gk"
+            },
+            "referrer": "http://bm.scs.gov.cn/",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "body": null,
+            "method": "GET",
+            "mode": "cors",
+            "credentials": "omit"
+        }).then(async response => {
+            const result = await response.json();
+            return result;
+        }).then(res=> {
+            if(res?.scoreTime === '0'){
+                const str = `成绩未出 - ${count} - ${new Date().toLocaleString()}`
+                console.log(str)
+                if(count % 120 === 0){
+                    fetch(`http://push.ijingniu.cn/send?key=2bc9a18a90634e7ea507e492bde00d4e&head=成绩提醒&body=${str}-${JSON.stringify(res)}`)
+                }
+            }else{
+                const str = '成绩已出，请前往查询'
+                fetch(`http://push.ijingniu.cn/send?key=2bc9a18a90634e7ea507e492bde00d4e&head=出成绩啦&body=${str}-${JSON.stringify(res)}`)
+                console.log('成绩已出--------------------------->')
+            }
+            count++
+        })
+    }
 
-    
+    setInterval(()=> query(), 1000 * 5)
     return (
         <div>
             <ul>

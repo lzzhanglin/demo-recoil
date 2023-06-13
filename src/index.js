@@ -24,6 +24,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import StateTest from './pages/StateTest';
 ReactDOM.render(
   <React.StrictMode>
     <RecoilRoot>
@@ -37,6 +38,7 @@ ReactDOM.render(
           <Route path="useEffect" element={<EffectTest />} />
           <Route path="useCallback" element={<CallbackTest />} />
           <Route path="depTest" element={<DepTest />} />
+          <Route path="stateTest" element={<StateTest />} />
           <Route path="useMemo" element={<MemoTest initValue={5} initValue2={6} />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

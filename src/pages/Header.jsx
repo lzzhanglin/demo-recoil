@@ -11,6 +11,7 @@ const Header = () => {
             <Link to="/useCallback">useCallback</Link> |{" "}
             <Link to="/useMemo">useMemo</Link> |{" "}
             <Link to="/depTest">Dep</Link> |{" "}
+            <Link to="/stateTest">state test</Link> |{" "}
         </div>
     )
 }
